@@ -1,19 +1,31 @@
 package JavaCore.Publications;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public abstract class Publication implements Printable {
     private String title;
     private String author;
     private short year;
 
-    private static int countPublication; // todo
+    private static int countPublication;
 
     public static int getCountPublication() {
         return countPublication;
     }
 
     protected Publication() {
+    }
+
+    protected void input(Scanner sc) {
+        countPublication++;
+        System.out.println("Введите название: ");
+        this.title = sc.nextLine();
+        System.out.println("Введите автора: ");
+        this.author = sc.nextLine();
+        System.out.println("Введите год: ");
+        this.year = sc.nextShort();
+        sc.nextLine();
     }
 
     protected Publication(String title, String author, short year) {
@@ -59,7 +71,7 @@ public abstract class Publication implements Printable {
         this.title = title;
     }
 
-    public int getYear() {
+    public short getYear() {
         return year;
     }
 
@@ -73,5 +85,9 @@ public abstract class Publication implements Printable {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public static void CountPublicationMinusOne() {
+        countPublication--;
     }
 }

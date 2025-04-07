@@ -7,22 +7,13 @@ public class Book extends Publication{
     private long ISBN;
 
     public Book(Scanner sc) {
-        System.out.println("Книга\nВведите название: ");
-        String title = sc.nextLine();
-        System.out.println("Введите автора: ");
-        String author = sc.nextLine();
-        System.out.println("Введите год: ");
-        short year = sc.nextShort();
+        super.input(sc);
+
         System.out.println("Введите ISBN: ");
-        long ISBN = sc.nextLong();
+        this.ISBN = sc.nextLong();
         sc.nextLine();
-
-        super.setTitle(title);
-        super.setAuthor(author);
-        super.setYear(year);
-        this.ISBN = ISBN;
+        System.out.println("Публикация успешно добавлена!");
     }
-
 
     @Override
     public String toString() {

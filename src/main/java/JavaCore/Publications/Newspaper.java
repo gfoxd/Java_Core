@@ -7,25 +7,16 @@ public class Newspaper extends Publication {
     private String publicationDay;
 
     public Newspaper(Scanner sc) {
-        System.out.println("Газета\nВведите название: ");
-        String title = sc.nextLine();
-        System.out.println("Введите автора: ");
-        String author = sc.nextLine();
-        System.out.println("Введите год: ");
-        short year = sc.nextShort();
-        System.out.println("Введите день недели публикации: ");
-        String publicationDay = sc.nextLine();
-        sc.nextLine();
+        super.input(sc);
 
-        super.setTitle(title);
-        super.setAuthor(author);
-        super.setYear(year);
-        this.publicationDay = publicationDay;
+        System.out.println("Введите день недели публикации: ");
+        this.publicationDay = sc.nextLine();
+        System.out.println("Публикация успешно добавлена!");
     }
 
     @Override
     public String toString() {
-        return "Publication: " +
+        return "Newspaper: " +
                 "title - '" + super.getTitle() + '\'' +
                 ", author - '" + super.getAuthor() + '\'' +
                 ", year - " + super.getYear() +

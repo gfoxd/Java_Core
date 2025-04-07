@@ -7,25 +7,17 @@ public class Magazine extends Publication{
     private int issueNumber;
 
     public Magazine(Scanner sc) {
-        System.out.println("Журнал\nВведите название: ");
-        String title = sc.nextLine();
-        System.out.println("Введите автора: ");
-        String author = sc.nextLine();
-        System.out.println("Введите год: ");
-        short year = sc.nextShort();
-        System.out.println("Введите номер выпуска: ");
-        int issueNumber = sc.nextInt();
-        sc.nextLine();
+        super.input(sc);
 
-        super.setTitle(title);
-        super.setAuthor(author);
-        super.setYear(year);
-        this.issueNumber = issueNumber;
+        System.out.println("Введите номер выпуска: ");
+        this.issueNumber = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Публикация успешно добавлена!");
     }
 
     @Override
     public String toString() {
-        return "Publication: " +
+        return "Magazine: " +
                 "title - '" + super.getTitle() + '\'' +
                 ", author - '" + super.getAuthor() + '\'' +
                 ", year - " + super.getYear() +
