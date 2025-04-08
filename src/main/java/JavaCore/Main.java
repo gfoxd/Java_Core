@@ -15,9 +15,9 @@ public class Main {
         boolean onOff = true;
 
         while (onOff){
-            System.out.println("\nВыберите действие:\n1 - добавить публикацию\n2 - удалить публикацию\n" +
-                    "3 - исправить данные о публикации\n4 - посмотреть счётчик публикаций\n5 - посмотреть все публикации\n" +
-                    "6 - поиск по названию\n7 - поиск по автору\n8 - выход из приложения: ");
+            System.out.println("\nВыберите действие:\n1 - добавить публикацию\n2 - посмотреть все публикации\n" +
+                    "3 - поиск по автору\n4 - посмотреть счётчик публикаций\n5 - удалить публикацию \n" +
+                    "6 - поиск по названию\n7 - исправить данные о публикации\n0 - выход из приложения: ");
 
             try {
                 short whatDo = sc.nextShort();
@@ -32,26 +32,26 @@ public class Main {
                         }
                         break;
                     case 2:
-                        library.deletePublication(sc);
+                        library.printAll();
                         break;
                     case 3:
-                        library.updatePublication(sc);
+                        System.out.println("Введите имя автора для поиска: ");
+                        library.searchByAuthor(sc);
                         break;
                     case 4:
-                        System.out.println("Всего публикаций:1 " + Publication.getCountPublication());
+                        System.out.println("Всего публикаций: " + Publication.getCountPublication());
                         break;
                     case 5:
-                        library.printAll();
+                        library.deletePublication(sc);
                         break;
                     case 6:
                         System.out.println("Введите название публикации для поиска: ");
                         library.searchByTitle(sc);
                         break;
                     case 7:
-                        System.out.println("Введите имя автора для поиска: ");
-                        library.searchByAuthor(sc);
+                        library.updatePublication(sc);
                         break;
-                    case 8:
+                    case 0:
                         System.out.println("До новых встреч!");
                         onOff = false;
                         break;
